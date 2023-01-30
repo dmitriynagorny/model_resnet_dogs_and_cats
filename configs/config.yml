@@ -1,0 +1,36 @@
+batch_size: 16
+device: 'cuda:0'
+size: 256
+
+paths:
+  train_path_0: './datas/training_set/dogs'
+  train_path_1: './datas/training_set/cats'
+
+  test_path_0: './datas/test_set/dogs'
+  test_path_1: './datas/test_set/cats'
+
+network:
+  input_nc: 3
+  base_nc: 64
+  output_nc: 2
+
+loops_params:
+  epoch: 5
+
+optimizer:
+  lr: 0.0001
+  betas: (0.9, 0.999)
+
+params_cuda:
+  use_amp: True
+  benchmark: False
+  deterministic: False
+
+load: True
+path_load: 'weights/model_w.pth'
+
+save: False
+path_save: 'weights/model_w.pth'
+
+tests: False
+path_test: './datas/training_set/exp2/'
